@@ -85,42 +85,114 @@ The objective for this playbook will be to send a slack message and an email con
   Now, if the user selects no, Lima will not isolate, and the message will contain the isolation status, with a note that the computer is not being isolated; please investigate. Everything sounds about right.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/6hyNUD.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
   Now obviously we can change the wording later on. It doesn't need to be this exactly, but this is a pretty good rough draft. It's good to put down your thoughts and then have a reference. So let's go ahead and build this out in draw.io.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/bKATHo.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
   All righty, so on draw.io. We have our "SOAR EDR Playbook". We know for a fact that we want Slack, LimaCharlie, and an email. So what I'll do is use this rounded rectangle to signify Slack. We could just duplicate this and I'll say "Email". Then another for LimaCharlie.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/KyDU6v.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
   Let's add some color here. I'm going to select purple for SOAR. Email is going to be green, and LimaCharlie is going to be blue. So how this is going to work is that we first need to create a detection in LimaCharlie.
-  
-  So we are going to assume that the detection is going to be sent over to Tines. Which makes me remember, I need to add in Tines. Tines is going to be purple and Slack can be red. Finally let's leave some space in between.
-
-  So first and foremost, LimaCharlie will send a detection over to Tines. Double click and type "Detection". So our detection sends over to Tines. Tines will then send a message over to Slack, with the details and email.
-  
-  I don't like how these lines look, so I'll just select this option right here on the right. Select straight. That looks a lot better. Lets create a new message saying, "Message with details contains the time, computer name, Source IP, process command line, file path, sensor ID, and the link to the detection (If applicable)".
-  
-  
-  Let me go ahead and format this just a bit. There you go. So LimaCharlie detects the tool, sends the detection (alert) over to Tines. Tines will then send a message with details" over to Slack and Tines will then send a message with details as well over to email.
-  
-  What we're missing is the user input. So let's create a rectangle and say "User Prompt". Aswell as "Does the user want to isolate the machine. 
-  
+<br />
+<br />
+<img src="https://snipboard.io/HnsDtI.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+  So we are going to assume that the detection is going to be sent over to Tines. Which makes me remember, I need to add in Tines. Tines is going to be purple and Slack can be red. Finally, let's leave some space in between.
+<br />
+<br />
+<img src="https://snipboard.io/sa7YXj.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+  So first and foremost, LimaCharlie will send a detection over to Tines. Double-click and type "Detection". So our detection sends over to Tines. Tines will then send a message over to Slack, with the details and email.
+<br />
+<br />
+<img src="https://snipboard.io/0Unxep.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+  I don't like how these lines look, so I'll just select this option right here on the right. Select straight. That looks a lot better. Let's create a new message saying, "Message with details contains the time, computer name, Source IP, process command line, file path, sensor ID, and the link to the detection (If applicable)".
+<br />
+<br />
+<img src="https://snipboard.io/EJSw4b.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+  Let me go ahead and format this just a bit. There you go. So LimaCharlie detects the tool, and sends the detection (alert) over to Tines. Tines will then send a message with details" over to Slack and Tines will then send a message with details as well over to email.
+<br />
+<br />
+<img src="https://snipboard.io/e392aV.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+  What we're missing is the user input. So let's create a rectangle and say "User Prompt". Aswell as "Does the user want to isolate the machine".
+<br />
+<br />
+<img src="https://snipboard.io/mo1jkQ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
   Then let's create a two dimes. Let's create one for "NO" and "YES". I'll color "YES" as green and I'll color "NO" as red. If yes, then LimaCharlie should automatically isolate the machine.
-  
-  So what that means is that LimaCharlie is going to isolate the computer if infected. So what we're going to is create two computer icons to signify an infected machine and an isolated machine.
-  
-  Let's run this back real quick. The user double clicks the hack tool, and the computer then gets infected. Limacharlie detects the hack tool then ships the detection over to Tines. 
-  
+<br />
+<br />
+<img src="https://snipboard.io/iBqjly.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+  So what that means is that LimaCharlie is going to isolate the computer if it is infected. So what we're going to is create two computer icons to signify an infected machine and an isolated machine.
+<br />
+<br />  
+<img src="https://snipboard.io/djeCsY.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+  Let's run this back real quick. The user double-clicks the hack tool, and the computer then gets infected. Lima charlie detects the hack tool and then ships the detection over to Tines. 
+<br />
+<br />
+<img src="https://snipboard.io/djeCsY.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
   Tines will then send a message with details over to Slack. Tines will also send a message with details via email and it would ask the user if they wish to isolate the machine from the user's prompt. 
-  
+<br />
+<br />
+<img src="https://snipboard.io/djeCsY.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
   If the user selects yes, then LimaCharlie will go out and isolate the machine automatically. Afterward, a message will then be sent over to Slack containing the isolation status. Now if the user selects no, then it'll just send a message over to Slack saying the computer was not isolated and to please investigate. 
-  
+<br />
+<br />
+<img src="https://snipboard.io/nX4G1B.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
   I think that's pretty good for now. We can change this up later on down the road and just remember that this does not need to be pretty. That's it, now we have our workflow ready to go. We will be referencing this going forward and in part two, we will go over how to install and set up LimaCharlie so we can get ready for the exciting stuff later on. That is it for this part and I hope you are as excited as I am to work together on another project. Remember to stay curious and do things differently.
+<br />
+<br />
+<img src="https://snipboard.io/nX4G1B.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
