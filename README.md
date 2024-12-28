@@ -42,7 +42,7 @@ The objective for this playbook will be to send a slack message and an email con
 <br />
 <br />
 <br />
-<br  />
+<br />
   So first and foremost, let's draw a square right here. I'll type "SOAR EDR Playbook". So this is going to signify the beginning of our Playbook workflow. So what exactly do we want our Playbook to do? I'll go ahead and open up a Notepad.
 <br />
 <br />
@@ -76,10 +76,14 @@ The objective for this playbook will be to send a slack message and an email con
 <img src="https://snipboard.io/vNu0xT.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
+<br />
+<br />
   If the user selects yes. LimaCharlie should automatically isolate the machine and a new message should be sent to Slack. This message will contain the isolation status, with a note of that the computer has been isolated.
 <br />
 <br />
 <img src="https://snipboard.io/3LMwmt.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
 <br />
 <br />
   Now, if the user selects no, Lima will not isolate, and the message will contain the isolation status, with a note that the computer is not being isolated; please investigate. Everything sounds about right.
@@ -88,16 +92,22 @@ The objective for this playbook will be to send a slack message and an email con
 <img src="https://snipboard.io/6hyNUD.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
+<br />
+<br />
   Now obviously we can change the wording later on. It doesn't need to be this exactly, but this is a pretty good rough draft. It's good to put down your thoughts and then have a reference. So let's go ahead and build this out in draw.io.
 <br />
 <br />
 <img src="https://snipboard.io/bKATHo.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
+<br />
+<br />
   All righty, so on draw.io. We have our "SOAR EDR Playbook". We know for a fact that we want Slack, LimaCharlie, and an email. So what I'll do is use this rounded rectangle to signify Slack. We could just duplicate this and I'll say "Email". Then another for LimaCharlie.
 <br />
 <br />
 <img src="https://snipboard.io/KyDU6v.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
 <br />
 <br />
   Let's add some color here. I'm going to select purple for SOAR. Email is going to be green, and LimaCharlie is going to be blue. So how this is going to work is that we first need to create a detection in LimaCharlie.
